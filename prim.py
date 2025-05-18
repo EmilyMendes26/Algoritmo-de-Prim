@@ -1,13 +1,16 @@
 #Importado heappop e heappush para determinar o nó com menor custo para adicionar à folha
 from heapq import heappop, heappush
 
+#importando random para pegar uma aresta aleatória
+import random
+
 #grafo conexo e ponderado de exemplo para a implementação
 grafo = {
-    'A': [('B', 1), ('D', 3)],
-    'B': [('A', 1), ('C', 2), ('D', 4)],
-    'C': [('B', 2), ('D', 5), ('E', 1)],
-    'D': [('A', 3), ('B', 4), ('C', 5), ('E', 2)],
-    'E': [('C', 1), ('D', 2)]
+    'PC1': [('PC2', 1), ('PC4', 3)],
+    'PC2': [('PC1', 1), ('PC3', 2), ('PC4', 4)],
+    'PC3': [('PC2', 2), ('PC4', 5), ('PC5', 1)],
+    'PC4': [('PC1', 3), ('PC2', 4), ('PC3', 5), ('PC5', 2)],
+    'PC5': [('PC3', 1), ('PC4', 2)]
 }
 
 #definindo o algoritmo
@@ -61,19 +64,22 @@ def prim(grafo,pai):
     #Quando o while acabar, retorna a mst gerada, o custo final e a lista de visitados
     return mst, custo, visitados
 
+#definindo o nó de partida
+aresta = ['PC1','PC2','PC3','PC4','PC5']
+no_inicial = random.choice(aresta)
+mst,custo,visitados = prim(grafo,no_inicial)
 
-mst,custo,visitados = prim(grafo,'B')
+#saida do algoritmo
+print("No inicial: ")
+print(no_inicial,"\n")
 
 print("Arvore geradora minima:")
-print(mst)
+print(mst, "\n")
 
 for aresta in mst:
     peso, pai, no = aresta
-    print(f"No visitado: {pai} | Proximo no: {no} | Peso: {peso}")
+    print(f"No visitado: {no} | Origem: {pai} | Peso: {peso}")
+print("\n")
 
 print (f"Custo total: {custo}")
 print (visitados)
-
-
-
-
