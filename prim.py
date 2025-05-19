@@ -72,8 +72,8 @@ def inicio(grafo):
     return lista
 
 #pegando o no inicial da funcao inicio
-lista = inicio(grafo)
-no_inicial = random.choice(lista)
+arestas = inicio(grafo)
+no_inicial = random.choice(arestas)
 
 #pegando mst, custo e visitados da função de prim
 mst,custo,visitados = prim(grafo,no_inicial)
