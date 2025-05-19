@@ -79,16 +79,14 @@ no_inicial = random.choice(arestas)
 mst,custo,visitados = prim(grafo,no_inicial)
 
 #saida do algoritmo
-print("No inicial: ")
-print(no_inicial,"\n")
+print("No inicial: ", no_inicial,"\n")
 
-print("Arvore geradora minima:")
-print(mst, "\n")
+print("Arvore geradora minima: ",mst,"\n")
 
 for aresta in mst:
     peso, pai, no = aresta
     print(f"No visitado: {no} | Origem: {pai} | Peso: {peso}")
 print("\n")
 
-print (f"Custo total: {custo}")
-print (visitados)
+print (f"Custo total: {custo}","\n")
+print ("Todos os nos visitados: ",visitados,"\n")
