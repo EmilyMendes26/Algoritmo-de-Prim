@@ -64,9 +64,18 @@ def prim(grafo,pai):
     #Quando o while acabar, retorna a mst gerada, o custo final e a lista de visitados
     return mst, custo, visitados
 
-#definindo o nó de partida
-aresta = ['PC1','PC2','PC3','PC4','PC5']
-no_inicial = random.choice(aresta)
+#definindo funcao para pegar o ponto inicial
+def inicio(grafo):
+    lista = []
+    for no in grafo:
+        lista.append(no)
+    return lista
+
+#pegando o no inicial da funcao inicio
+lista = inicio(grafo)
+no_inicial = random.choice(lista)
+
+#pegando mst, custo e visitados da função de prim
 mst,custo,visitados = prim(grafo,no_inicial)
 
 #saida do algoritmo
